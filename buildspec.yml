@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs : 18
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - npm run build 
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - ls 
+artifacts:
+  files:
+    - build/**/*
+  name: react-app
