@@ -6,7 +6,7 @@ phases:
       nodejs : 18
   pre_build:
     commands:
-      - echo Nothing to do in the pre_build phase...
+      - npm install 
   build:
     commands:
       - npm run build 
