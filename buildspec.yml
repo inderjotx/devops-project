@@ -15,6 +15,7 @@ phases:
     commands:
       - echo "Running tests..."
       - echo "Building Docker image..."
+      - echo "$username"
       - docker login -u "$username" -p "$password"
       - docker build -t "$username/react-app:latest" .
       - docker push  "$username/react-app:latest"
