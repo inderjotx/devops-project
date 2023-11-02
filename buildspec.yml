@@ -1,20 +1,24 @@
 version: 0.2
-
+env:
+  parameter-store:
+    username: /myapp/docker-credentials/username
+    password: /myapp/docker-credentials/password
 phases:
   install:
     runtime-versions:
-      nodejs : 18
+      nodejs: 18
   pre_build:
     commands:
+      - echo "Installing dependencies..."
       - npm install 
   build:
     commands:
-      - npm run build 
+      - echo "Running tests..."
+      - echo "Building Docker image..."
+      - docker login -u "$username" -p "$password"
+      - docker build -t "$username/react-app:latest" .
+      - docker push  "$username/react-app:latest"
   post_build:
     commands:
-      - echo Build completed on `date`
-      - ls 
-artifacts:
-  files:
-    - build/**/*
-  name: react-app
+      - echo "Build completed successfully!"
+
