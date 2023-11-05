@@ -10,7 +10,15 @@ pipeline {
 	stage('fun'){
 		steps{
 		sh 'echo "ind vs sa "'	
-	}	
+	    }	
     }
+
+    stage('fun'){
+		steps{
+		sh 'echo "Now Ind is at 117 with loss of 2 wickets"'	
+	    }	
+    }
+    
+
 }
 }
