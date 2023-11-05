@@ -13,7 +13,7 @@ pipeline {
 	    }	
     }
 
-    stage('fun'){
+    stage('opps'){
 		steps{
 		sh 'echo "Now Ind is at 117 with loss of 2 wickets"'	
 	    }	
