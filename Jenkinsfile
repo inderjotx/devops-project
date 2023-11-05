@@ -1,24 +1,17 @@
 pipeline {
     agent { docker { image 'node:20.9.0-alpine3.18' } }
     stages {
-        stage('build') {
+        stage('tesing') {
             steps {
-                sh 'node --version'
+                sh 'ls'
             }
         }
 	
-	stage('fun'){
+	stage('build'){
 		steps{
-		sh 'echo "ind vs sa "'	
+		sh 'npm install'	
 	    }	
     }
-
-    stage('opps'){
-		steps{
-		sh 'echo "Now Ind is at 117 with loss of 2 wickets"'	
-	    }	
-    }
-    
 
 }
 }
