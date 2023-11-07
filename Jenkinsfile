@@ -22,7 +22,7 @@ pipeline {
 	stage('testing-sonar'){
 		steps{
 			withSonarQubeEnv('sonar') {
-                    	sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=react\
+                    	sh '''$SCANNER_HOME/bin/sonar -Dsonar.projectName=react\
                     	-Dsonar.projectKey=react'''
                 	}		
        		}	
