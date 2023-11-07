@@ -6,13 +6,15 @@ pipeline {
     stages {
         stage('tesing') {
             steps {
-                sh 'ls'
-		sh ' npm cache clean --force '
+                sh 'cleanWs()'
+		sh 'id'
+		sh ''
             }
         }
 	
 	stage('build'){
 		steps{
+		sh ' npm cache clean --force '
 		sh 'npm ci'	
 	    }	
     }
