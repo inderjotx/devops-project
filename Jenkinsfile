@@ -16,7 +16,6 @@ pipeline {
             steps {
                 script {
 			sh 'echo "Starting the testing step...."'
-			sh 'ls'
                 }
             }
         }
