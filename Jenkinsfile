@@ -1,5 +1,8 @@
 pipeline {
-    agent { docker { image 'node:20.9.0-alpine3.18' } }
+    agent { docker { 
+	    image 'node:20.9.0-alpine3.18'
+	    args '-u root --privileged'
+    } }
     stages {
         stage('tesing') {
             steps {
