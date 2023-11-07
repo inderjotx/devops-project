@@ -1,9 +1,8 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:20.9.0-alpine3.18'
-            args '--user root --privileged'
-        }
+    agent any
+	 tools {
+        jdk 'jdk'
+        nodejs 'node'
     }
 	
 	 environment {
