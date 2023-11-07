@@ -22,7 +22,7 @@ pipeline {
 	stage('testing-sonar'){
 
 		steps{
-			sh 'ls tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/'
+			sh 'ls tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner/bin/'
 		}
 		// steps{
 		// 	withSonarQubeEnv('sonar') {
