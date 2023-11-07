@@ -9,9 +9,8 @@ pipeline {
         stage('testing') {
             steps {
                 script {
-                    cleanWs()
-                    sh 'id'
-                    sh 'cat /etc/passwd'
+			sh 'echo "Starting the testing step...."'
+			sh 'ls'
                 }
             }
         }
