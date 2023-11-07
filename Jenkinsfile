@@ -16,7 +16,7 @@ pipeline {
 			sh 'echo "Starting the testing step...."'
                 }
             }
-        }
+}
 	    
 	stage('testing-sonar'){
 
@@ -33,6 +33,19 @@ pipeline {
                 	script {
                    		 waitForQualityGate abortPipeline: false, credentialsId: 'sonar'
                 }
+            }
+        }
+	    
+	    stage('OWASP FS SCAN') {
+            steps {
+                dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'checker'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+            }
+        }
+	    
+        stage('TRIVY FS SCAN') {
+            steps {
+                sh "trivy fs . > trivyfs.txt"
             }
         }
 	        
