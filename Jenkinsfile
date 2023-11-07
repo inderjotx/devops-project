@@ -14,8 +14,6 @@ pipeline {
         stage('testing') {
             steps {
                 script {
-			cleanWs()
-			sh 'git clone https://github.com/inderharrysingh/devops-project'
 			sh 'echo "Starting the testing step...."'
                 }
             }
