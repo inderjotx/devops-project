@@ -4,12 +4,13 @@ pipeline {
         stage('tesing') {
             steps {
                 sh 'ls'
+		sh ' npm cache clean --force '
             }
         }
 	
 	stage('build'){
 		steps{
-		sh 'npm install'	
+		sh 'npm ci'	
 	    }	
     }
 
