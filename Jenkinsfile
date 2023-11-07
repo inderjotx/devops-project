@@ -22,7 +22,8 @@ pipeline {
 	stage('testing-sonar'){
 
 		steps{
-			sh 'ls tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/'
+			sh 'pwd'
+			sh 'ls /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/'
 		}
 		// steps{
 		// 	withSonarQubeEnv('sonar') {
