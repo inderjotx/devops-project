@@ -5,6 +5,12 @@ pipeline {
             args '--user root --privileged'
         }
     }
+
+
+	 environment {
+        	SCANNER_HOME = tool 'sonar'
+    		}
+	
     stages {
         stage('testing') {
             steps {
@@ -20,5 +26,14 @@ pipeline {
                 sh 'npm ci'
             }
         }
+	
+	stage('testing-sonar'){
+		steps{
+		withSonarQubeEnv('sonar') {
+                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=react\
+                    -Dsonar.projectKey=react'''
+                }		
+}
+	}
     }
 }
