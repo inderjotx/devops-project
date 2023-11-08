@@ -67,7 +67,7 @@ pipeline {
 			withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_HUB_USERNAME', passwordVariable: 'DOCKER_HUB_PASSWORD')]) {
                         	sh "docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD"	
 							sh "docker build -t $IMAGE:v$TAG ."
-							sh "docker run -p 5000:80  $IMAGE:v$TAG "
+							sh "docker run -d -p 5000:80  $IMAGE:v$TAG "
 							sh "docker push $IMAGE:v$TAG"
 							
                     }
@@ -78,6 +78,8 @@ pipeline {
 	stage('update gitrepo for argo cd '){
 		steps{
 			 script {
+
+					cleanWs()
                     withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_TOKEN')]) {
                         sh """
                         git clone https://inderharrysingh:${GITHUB_TOKEN}@github.com/inderharrysingh/devSecOps-image.git
