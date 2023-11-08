@@ -67,7 +67,6 @@ pipeline {
 			withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_HUB_USERNAME', passwordVariable: 'DOCKER_HUB_PASSWORD')]) {
                         	sh "docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD"	
 							sh "docker build -t $IMAGE:v$TAG ."
-							sh "docker run -d -p 5000:80  $IMAGE:v$TAG "
 							sh "docker push $IMAGE:v$TAG"
 							
                     }

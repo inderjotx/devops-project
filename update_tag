@@ -1,6 +1,0 @@
-# /bin/bash
-
-prev_tag=$(cat tag.txt)
-new_tag=$(($prev_tag+1))
-echo $prev_tag
-echo $new_tag > tag.txt
